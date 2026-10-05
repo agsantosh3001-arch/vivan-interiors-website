@@ -246,6 +246,47 @@ a { color: inherit; }
   .lightbox-figure img { max-width: 100%; max-height: calc(100% - 22px); }
   .lightbox-figure figcaption { font-size: 7px; }
 }
+
+/* Let the project photography read brighter against the studio's warm neutrals. */
+.project-directory { background: #6b6255; }
+.directory-image-wrap { background: #655c50; }
+.directory-image-wrap::before { background: linear-gradient(180deg, rgba(19,18,16,.12), transparent 42%); }
+.directory-image-wrap::after { background: linear-gradient(transparent, rgba(19,18,16,.24)); }
+.directory-image-wrap img { filter: brightness(1.07) saturate(1.05); }
+.project-directory-card:hover .directory-image-wrap img,
+.project-directory-card:focus-visible .directory-image-wrap img { filter: brightness(1.12) saturate(1.07); }
+.project-photo-section { background: #302e28; }
+.project-photo-button { border: 1px solid rgba(211,187,147,.22); background: #655c50; }
+.project-photo-button img { filter: brightness(1.06) saturate(1.04); }
+.project-photo-button:hover img, .project-photo-button:focus-visible img { opacity: 1; filter: brightness(1.11) saturate(1.06); }
+.detail-shot { background: #e3dcd0; }
+.detail-shot img { display: block; filter: brightness(1.06) saturate(1.04); }
+
+/* Extra lift for the darker E1-804, C2 1201 and A2 1203 photography. */
+.project-directory-card[data-project="emami-city-e21"] .directory-image-wrap img,
+.project-directory-card[data-project="c2-1201"] .directory-image-wrap img,
+.project-directory-card[data-project="a2-1203"] .directory-image-wrap img { filter: brightness(1.2) saturate(1.07); }
+.project-directory-card[data-project="emami-city-e21"]:hover .directory-image-wrap img,
+.project-directory-card[data-project="emami-city-e21"]:focus-visible .directory-image-wrap img,
+.project-directory-card[data-project="c2-1201"]:hover .directory-image-wrap img,
+.project-directory-card[data-project="c2-1201"]:focus-visible .directory-image-wrap img,
+.project-directory-card[data-project="a2-1203"]:hover .directory-image-wrap img,
+.project-directory-card[data-project="a2-1203"]:focus-visible .directory-image-wrap img { filter: brightness(1.24) saturate(1.08); }
+.project-e1-804 .project-detail-hero-shade,
+.project-c2-1201 .project-detail-hero-shade,
+.project-a2-1203 .project-detail-hero-shade { background: linear-gradient(180deg, rgba(24,23,20,.2), rgba(24,23,20,.1) 38%, rgba(24,23,20,.66)); }
+.project-e1-804 .project-photo-button img,
+.project-c2-1201 .project-photo-button img,
+.project-a2-1203 .project-photo-button img,
+.project-e1-804 .detail-shot img,
+.project-c2-1201 .detail-shot img,
+.project-a2-1203 .detail-shot img { filter: brightness(1.2) saturate(1.07); }
+.project-e1-804 .project-photo-button:hover img,
+.project-e1-804 .project-photo-button:focus-visible img,
+.project-c2-1201 .project-photo-button:hover img,
+.project-c2-1201 .project-photo-button:focus-visible img,
+.project-a2-1203 .project-photo-button:hover img,
+.project-a2-1203 .project-photo-button:focus-visible img { filter: brightness(1.24) saturate(1.08); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }

@@ -6,6 +6,7 @@
   projects.forEach((project, index) => {
     const link = document.createElement('a');
     link.className = 'project-directory-card';
+    link.dataset.project = project.slug;
     link.href = `./${project.slug}/`;
     link.setAttribute('aria-label', `View ${project.name}, ${project.type} in ${project.location}`);
     link.innerHTML = `

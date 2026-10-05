@@ -14,10 +14,14 @@ canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block
 .wash { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(242,238,231,.4), transparent 24%, transparent 72%, rgba(24,23,20,.18)); }
 .opening-dim { position: absolute; inset: 0; z-index: 1; opacity: .36; pointer-events: none; background: #211f1a; }
 .end-dim { position: absolute; inset: 0; z-index: 1; opacity: 0; pointer-events: none; background: rgba(20, 19, 17, .72); }
-.opening-card { position: absolute; z-index: 5; inset: 0; display: grid; place-items: center; padding: 24px; color: #f7f1e7; background: #050505; opacity: 1; pointer-events: none; }
+.opening-card { position: absolute; z-index: 5; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: clamp(30px, 5vh, 48px); padding: 24px; color: #f7f1e7; background: #050505; opacity: 1; pointer-events: none; }
 .opening-card-copy { display: flex; flex-direction: column; align-items: center; margin: 0; font-family: var(--serif); font-size: clamp(38px, 5.3vw, 68px); font-weight: 400; letter-spacing: .035em; line-height: .86; text-align: center; text-transform: uppercase; }
 .opening-card-copy span { color: #fffaf1; }
 .opening-card-copy em { margin-top: .12em; background: linear-gradient(100deg, #f1dfbe 8%, #d1a969 52%, #f5e6c9 92%); background-clip: text; -webkit-background-clip: text; color: transparent; font-style: italic; }
+.opening-scroll-cue { display: flex; flex-direction: column; align-items: center; gap: 10px; color: rgba(247,241,231,.72); font-family: var(--sans); font-size: 8px; font-weight: 400; letter-spacing: .24em; }
+.opening-scroll-cue i { position: relative; display: block; width: 1px; height: 25px; overflow: hidden; background: rgba(247,241,231,.2); }
+.opening-scroll-cue i::after { position: absolute; top: -9px; left: 0; width: 1px; height: 9px; background: #d1a969; content: ""; animation: opening-scroll-cue 1.35s ease-in-out infinite; }
+@keyframes opening-scroll-cue { 0% { transform: translateY(0); opacity: 0; } 25% { opacity: 1; } 100% { transform: translateY(34px); opacity: 0; } }
 .topbar { position: absolute; z-index: 2; left: 6.2vw; right: 6.2vw; top: 0; height: 94px; display: flex; align-items: center; justify-content: space-between; transition: color .35s ease, background-color .35s ease, backdrop-filter .35s ease; }
 .wordmark { color: var(--ink); text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: .23em; }
 .wordmark span { font-weight: 300; margin-left: 5px; }
@@ -240,7 +244,7 @@ html.gallery-ready .gallery-card.is-visible { opacity: 1; translate: 0 0; transi
   .caption { font-size: 6px; letter-spacing: .13em; }
   .opening-card-copy { font-size: clamp(36px, 11vw, 42px); }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .scroll-note i { animation: none; } html.gallery-ready .gallery-card { opacity: 1; translate: none; transition: none; } .gallery-card, .gallery-card img, .gallery-card figcaption, .founder-drawing, .founder-monogram { transition: none; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .scroll-note i, .opening-scroll-cue i::after { animation: none; } .opening-scroll-cue i::after { top: 8px; opacity: .8; } html.gallery-ready .gallery-card { opacity: 1; translate: none; transition: none; } .gallery-card, .gallery-card img, .gallery-card figcaption, .founder-drawing, .founder-monogram { transition: none; } }
 
 /* A tactile material register gives the home page a distinct editorial pause. */
 .home-projects-cta{display:flex;align-items:center;justify-content:space-between;width:min(280px,100%);margin:33px auto 0;padding:15px 0;border-top:1px solid rgba(39,37,31,.35);border-bottom:1px solid rgba(39,37,31,.35);color:#282722;text-decoration:none;font-size:7px;font-weight:500;letter-spacing:.19em;transition:color .25s,border-color .25s}.home-projects-cta i{color:#a98c65;font-size:18px;font-style:normal;transition:transform .25s}.home-projects-cta:hover{color:#8a704a;border-color:#a98c65}.home-projects-cta:hover i{transform:translate(4px,-4px)}
