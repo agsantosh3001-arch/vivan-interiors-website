@@ -1,0 +1,21 @@
+.menu-toggle { display: none; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+a:focus-visible, button:focus-visible { outline: 2px solid #b89869; outline-offset: 4px; }
+button { -webkit-tap-highlight-color: transparent; }
+@media (max-width: 760px) {
+  .nav-shell:not(.topbar) { z-index: 20; }
+  .nav-shell.topbar { z-index: 4; }
+  .menu-toggle { position: relative; z-index: 22; display: flex; width: 46px; height: 46px; flex: 0 0 46px; flex-direction: column; align-items: center; justify-content: center; gap: 5px; padding: 0; border: 1px solid currentColor; border-radius: 50%; color: inherit; background: rgba(233,227,218,.16); cursor: pointer; }
+  .menu-toggle span:not(.sr-only) { display: block; width: 15px; height: 1px; background: currentColor; transition: transform .22s ease, width .22s ease; }
+  .menu-open .menu-toggle span:nth-child(1) { transform: translateY(3px) rotate(45deg); }
+  .menu-open .menu-toggle span:nth-child(2) { transform: translateY(-3px) rotate(-45deg); }
+  .nav-shell .site-menu { position: absolute; z-index: 21; top: calc(100% - 4px); right: 0; left: auto; display: none !important; width: min(310px, 88vw); flex-direction: column; align-items: stretch; gap: 0 !important; padding: 9px 19px; border: 1px solid rgba(39,37,31,.13); color: #282722; background: #e9e3da; box-shadow: 0 14px 40px rgba(20,18,15,.2); }
+  .nav-shell .site-menu.is-open { display: flex !important; }
+  .nav-shell .site-menu a { display: flex !important; align-items: center; justify-content: space-between; min-height: 48px; padding: 10px 0; border-bottom: 1px solid rgba(39,37,31,.13); color: #282722 !important; font-size: 10px !important; font-weight: 500; letter-spacing: .13em !important; line-height: 1.4; text-align: left; text-shadow: none !important; }
+  .nav-shell .site-menu a:last-child { border-bottom: 0; }
+  .nav-shell .site-menu a:hover, .nav-shell .site-menu a:focus-visible { color: #927a59 !important; }
+  .nav-shell .site-menu .contact, .nav-shell .site-menu .nav-contact, .nav-shell .site-menu .services-contact, .nav-shell .site-menu .projects-nav-contact { padding: 10px 0; border-bottom: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .menu-toggle span:not(.sr-only) { transition: none; }
+}
